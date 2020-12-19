@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "build:watch": "webpack --watch",
-    "start": "cd server and node index.js",
+    "start": "node server/index.js",
     "server": "nodemon server"
   },
   "repository": {
