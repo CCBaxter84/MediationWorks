@@ -1,19 +1,18 @@
-const path = require('path');
-
 module.exports = {
   // Entry point for Webpack
-  entry: './src/index.ts',
+  entry: __dirname + '/client/src/index.tsx',
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
         use: 'ts-loader',
-        include: [ path.resolve(__dirname, 'src') ]
+        include: [ __dirname + '/client/src' ]
       }
     ]
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public')
+    path: __dirname + '/client/public'
   }
 }
