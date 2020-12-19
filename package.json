@@ -6,14 +6,9 @@
   "scripts": {
     "build": "webpack",
     "build:watch": "webpack --watch",
-<<<<<<< HEAD
-    "start": "node server/index.js",
-    "server": "nodemon server"
-=======
     "start": "node server/dist",
     "dev": "nodemon server/src/index.ts",
     "build:server": "tsc -p ."
->>>>>>> react-server
   },
   "repository": {
     "type": "git",
