@@ -6,8 +6,18 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
+        resolve: {
+          extensions: ['.ts', 'tsx']
+        },
         use: 'ts-loader',
         include: [ __dirname + '/client/src' ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   },

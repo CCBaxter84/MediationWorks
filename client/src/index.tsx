@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+//@ts-ignore
+import App from './App.tsx';
 
 ReactDOM.render(
-  <h1>Your Mom</h1>, document.getElementById('root')
+  <App />, document.getElementById('root')
 );
