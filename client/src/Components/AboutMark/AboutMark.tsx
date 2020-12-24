@@ -17,7 +17,7 @@ function AboutMark() {
           Hi, I'm Mark.
         </p>
         <p id='experience'>
-        I've been a Conflict Resolution Consultant and Group Facilitator for over 30 years, and I've love to help you.
+        I've been a Conflict Resolution Consultant and Group Facilitator for over 30 years, and I'd love to help you.
         </p>
       </article>
     </section>

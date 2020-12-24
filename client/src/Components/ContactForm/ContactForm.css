@@ -1,0 +1,48 @@
+.form-container {
+  background-color: blue;
+  color: seashell;
+  display: flex;
+  justify-content: space-around;
+  margin-left: -10px;
+  padding: 50px 20px;
+}
+
+#work-together {
+  width: 35%;
+}
+
+form {
+  align-items: flex-start;
+  background-color: white;
+  border-radius: 5px;
+  color: blue;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  justify-content: space-around;
+  padding: 40px;
+  width: 35%;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  width: 100%;
+}
+
+label > input {
+  background-color: linen;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+}
+
+#submit-btn {
+  align-self: flex-end;
+}
+
+#submit-btn:hover {
+  cursor: pointer;
+}

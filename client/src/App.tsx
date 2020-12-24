@@ -10,7 +10,8 @@ import TagLine from './Components/TagLine/TagLine.tsx'
 import BlogArticles from './Components/BlogArticles/BlogArticles.tsx'
 //@ts-ignore
 import GroupFacilitation from './Components/GroupFacilitation/GroupFacilitation.tsx'
-
+//@ts-ignore
+import ContactForm from './Components/ContactForm/ContactForm.tsx'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <AboutMark/>
       <BlogArticles />
       <GroupFacilitation />
-      <h3>Contact Me</h3>
+      <ContactForm/>
     </>
   );
 }
