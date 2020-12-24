@@ -4,6 +4,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(jpg|jpeg|png|gif|svg|ico)$/i,
+        use: "url-loader"
+      },
+      {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         resolve: {

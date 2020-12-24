@@ -1,0 +1,11 @@
+#group-facilitation {
+  background-color: lightsteelblue;
+  display: flex;
+  justify-content: center;
+  margin: 50px -10px;
+}
+
+#group-fac-container {
+  font-size: 20px;
+  width: 50%;
+}

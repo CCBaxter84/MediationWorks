@@ -1,0 +1,22 @@
+.blog {
+  align-items: center;
+  background-color: lightsteelblue;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 275px;
+  padding: 5px;
+  width: 25%;
+}
+
+#blog-title {
+  font-size: 20px;
+  font-weight: 900;
+  justify-self: center;
+}
+
+#blog-text {
+  font-size: 18px;
+  justify-self: center;
+}

@@ -1,0 +1,28 @@
+header {
+  position: fixed;
+  width: 100%;
+}
+
+header > section {
+  background-color: blue;
+  color: seashell;
+  display: flex;
+  justify-content: space-between;
+  margin: -10;
+  padding: 5px 20px;
+  width: 100%;
+}
+
+#navlinks {
+  display: flex;
+  justify-content: space-around;
+  max-width: 40%;
+  min-width: 400px;
+  padding-right: 20px;
+}
+
+.anchor-tags:link, .anchor-tags:visited,
+.anchor-tags:hover, .anchor-tags:active  {
+  color: seashell;
+  text-decoration: none;
+}

@@ -1,0 +1,42 @@
+#about-mark {
+  background-color: lightsteelblue;
+  display:flex;
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 50%;
+}
+
+#right-column {
+  align-items: flex-start;
+}
+
+#circle-photo {
+  border: 2px solid blue;
+  border-radius: 50%;
+  height: 400px;
+  width: 400px;
+}
+
+#question {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#intro {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#experience {
+  font-size: 20px;
+}
