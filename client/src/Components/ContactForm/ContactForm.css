@@ -1,21 +1,33 @@
 .form-container {
-  background-color: blue;
+  align-items: center;
+  background-color: #0d3fbd;
   color: seashell;
   display: flex;
   justify-content: space-around;
+  height: 90%;
   margin-left: -10px;
   padding: 50px 20px;
 }
 
 #work-together {
+  font-size: 30px;
   width: 35%;
+}
+
+#first-line {
+  font-size: 46px;
+  font-weight: bold;
+}
+
+#second-line {
+  font-family: 'Roboto', sans-serif;
 }
 
 form {
   align-items: flex-start;
   background-color: white;
   border-radius: 5px;
-  color: blue;
+  color: #0d3fbd;
   display: flex;
   flex-direction: column;
   height: 350px;

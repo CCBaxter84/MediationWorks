@@ -9,8 +9,8 @@ const BlogArticles: React.FC = () => {
   console.log(blogs);
   if (blogs.length) {
     return (
-      <section className='blogs-background'>
-        <section id='blog' className='blogs-container'>
+      <section id='blog' className='blogs-background'>
+        <section className='blogs-container'>
           {blogs.map((blog:any) => <Blog key={blog.id} title={blog.title} text={blog.text}/>)}
         </section>
       </section>

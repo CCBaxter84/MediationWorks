@@ -1,9 +1,11 @@
 #about-mark {
   background-color: lightsteelblue;
   display:flex;
+  min-height: 100%;
   margin-top: -10px;
   margin-left: -10px;
   margin-right: -10px;
+  padding: 20px;
 }
 
 .column {
@@ -20,23 +22,24 @@
 }
 
 #circle-photo {
-  border: 2px solid blue;
+  border: 5px solid #0d3fbd;
   border-radius: 50%;
   height: 400px;
   width: 400px;
 }
 
 #question {
-  font-size: 40px;
+  font-size: 48px;
   font-weight: bold;
 }
 
 #intro {
-  font-size: 24px;
+  font-size: 30px;
   font-style: italic;
   font-weight: bold;
 }
 
-#experience {
-  font-size: 20px;
+.experience {
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
 }

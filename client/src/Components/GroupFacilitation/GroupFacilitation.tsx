@@ -4,7 +4,7 @@ import './GroupFacilitation.css';
 const GroupFacilitation: React.FC = () => (
   <section id='group-facilitation'>
     <article id='group-fac-container'>
-      <h2>As a Group Facilitation Coach, I will work with you on the following skills:</h2>
+      <p>As a Group Facilitation Coach, I will work with you on the following skills:</p>
       <ul>
         <li>Meeting Management</li>
         <li>Construction of Agendas</li>

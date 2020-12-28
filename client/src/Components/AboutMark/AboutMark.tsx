@@ -16,9 +16,11 @@ function AboutMark() {
         <p id='intro'>
           Hi, I'm Mark.
         </p>
-        <p id='experience'>
-        I've been a Conflict Resolution Consultant and Group Facilitator for over 30 years, and I'd love to help you.
-        </p>
+        <article className='experience'>
+          <p >
+          I've been a Conflict Resolution Consultant and Group Facilitator for over 30 years.</p>
+          <p className='experience'>I'd love to help you.</p>
+        </article>
       </article>
     </section>
   );
