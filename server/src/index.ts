@@ -15,6 +15,14 @@ app.use(express.json());
   });
 });*/
 
+app.get('/blogs', async (req: Request, res: Response) => {
+  try {
+    res.status(200).json({ msg: 'Hold on to your butts...' });
+  } catch(error: any) {
+    res.status(500).json({ msg: error });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`)
 });
