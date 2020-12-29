@@ -6,9 +6,9 @@ type Props = {
   title: string,
   text: string,
   openModal: (title: string, text: string) => void
-}
+};
 
-const Blog: React.FC<Props> = ({ title, text, openModal }) => {
+function Blog({ title, text, openModal }: Props) {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     openModal(title, text);
   };
@@ -20,7 +20,5 @@ const Blog: React.FC<Props> = ({ title, text, openModal }) => {
     </article>
   );
 }
-
-
 
 export default Blog;

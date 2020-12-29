@@ -2,14 +2,14 @@ import * as React from 'react';
 import { useState } from 'react';
 import './ContactForm.css';
 
-const ContactForm: React.FC = () => {
+function ContactForm() {
   const [ firstName, setFirstName ] = useState('');
   const [ lastName, setLastName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ message, setMessage ] = useState('');
   const [ source, setSource ] = useState('');
 
-  function handleChange(event: any) {
+  const handleChange = (event: any) => {
     const { name, value } = event.target;
     if (name === 'firstName') {
       setFirstName(value);
@@ -22,9 +22,9 @@ const ContactForm: React.FC = () => {
     } else if (name === 'source') {
       setSource(value);
     }
-  }
+  };
 
-  function handleSubmit(event: any) {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log(`${firstName} ${lastName} ${email} ${message} ${source}`);
     setFirstName('');
@@ -32,7 +32,7 @@ const ContactForm: React.FC = () => {
     setEmail('');
     setMessage('');
     setSource('');
-  }
+  };
 
   return (
     <section id='contact' className='form-container'>
