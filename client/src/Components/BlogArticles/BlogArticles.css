@@ -1,7 +1,15 @@
 .blogs-background {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   height: 100%;
   justify-content: center;
+}
+
+.blogs-background > p {
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0 0 20px #bd0d77;
 }
 
 .blogs-container {

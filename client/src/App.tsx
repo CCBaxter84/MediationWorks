@@ -12,16 +12,33 @@ import BlogArticles from './Components/BlogArticles/BlogArticles.tsx'
 import GroupFacilitation from './Components/GroupFacilitation/GroupFacilitation.tsx'
 //@ts-ignore
 import ContactForm from './Components/ContactForm/ContactForm.tsx'
+//@ts-ignore
+import BlogModal from './Components/BlogModal/BlogModal.tsx'
 
 function App() {
+  const [ showModal, setShowModal ] = useState(false);
+  const [ title, setTitle ] = useState('');
+  const [ text, setText ] = useState('');
+
+  const openModal = (title: string, text: string) => {
+    setShowModal(true);
+    setTitle(title);
+    setText(text);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  }
+
   return (
     <>
       <Header/>
       <TagLine/>
       <AboutMark/>
-      <BlogArticles />
+      <BlogArticles openModal={openModal}/>
       <GroupFacilitation />
       <ContactForm/>
+      <BlogModal showModal={showModal} title={title} text={text} closeModal={closeModal}/>
     </>
   );
 }

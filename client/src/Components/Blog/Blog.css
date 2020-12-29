@@ -1,15 +1,19 @@
 .blog {
   align-items: center;
   background-color: lightsteelblue;
-  border: 1px solid #0d3fbd;
+  border: 1px solid #bd0d77;
   border-radius: 5px;
-  box-shadow: 0px 0px 20px #0d3fbd;
+  box-shadow: 0 0 20px #bd0d77;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 275px;
   padding: 5px;
   width: 25%;
+}
+
+.blog:hover {
+  cursor: pointer;
 }
 
 #blog-title {

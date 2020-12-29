@@ -38,7 +38,7 @@ const ContactForm: React.FC = () => {
     <section id='contact' className='form-container'>
       <article id='work-together'>
         <p id='first-line'>Let's Work Together!</p>
-        <p id='second-line'>Please take a moment to fill out this form, and I'll follow up with you.</p>
+        <p id='second-line'>Please take a moment to fill out this form, and I'll follow up with you.c</p>
       </article>
       <form onSubmit={handleSubmit}>
         <label>Your First Name
