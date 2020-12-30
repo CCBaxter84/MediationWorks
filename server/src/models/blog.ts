@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-import { Model, model, Schema, Document } from "mongoose";
+import { Model, model, Schema, Document } from 'mongoose';
 
 interface IBlog extends Document {
   title: string,
   text: string
-}
+};
 
 const blogSchema = new Schema({
   title: {

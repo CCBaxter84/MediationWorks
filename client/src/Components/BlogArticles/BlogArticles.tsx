@@ -20,7 +20,7 @@ function BlogArticles({ openModal }: Props) {
 
   useEffect(() => {
     axios.get('/blogs')
-      .then(res => setBlogs(res.data))
+      .then(res => setBlogs(res.data.msg))
       .catch(err => console.log(err))
   }, []);
 

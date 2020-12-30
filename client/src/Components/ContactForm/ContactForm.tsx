@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useState } from 'react';
 import './ContactForm.css';
+import axios from 'axios';
 
 function ContactForm() {
   const [ firstName, setFirstName ] = useState('');
   const [ lastName, setLastName ] = useState('');
   const [ email, setEmail ] = useState('');
-  const [ message, setMessage ] = useState('');
+  const [ need, setNeed ] = useState('');
   const [ source, setSource ] = useState('');
 
   const handleChange = (event: any) => {
@@ -17,8 +18,8 @@ function ContactForm() {
       setLastName(value);
     } else if (name === 'email') {
       setEmail(value);
-    } else if (name === 'message') {
-      setMessage(value);
+    } else if (name === 'need') {
+      setNeed(value);
     } else if (name === 'source') {
       setSource(value);
     }
@@ -26,11 +27,17 @@ function ContactForm() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log(`${firstName} ${lastName} ${email} ${message} ${source}`);
+    axios.post('/leads', {
+      firstName,
+      lastName,
+      email,
+      need,
+      source
+    });
     setFirstName('');
     setLastName('');
     setEmail('');
-    setMessage('');
+    setNeed('');
     setSource('');
   };
 
@@ -51,7 +58,7 @@ function ContactForm() {
           <input type='text' name='email' value={email} onChange={handleChange}/>
         </label>
         <label>How can I help you?
-          <input type='textarea' name='message' value={message} onChange={handleChange}/>
+          <input type='textarea' name='need' value={need} onChange={handleChange}/>
         </label>
         <label>How did you hear about me?
           <input type='textarea' name='source' value={source} onChange={handleChange}/>
