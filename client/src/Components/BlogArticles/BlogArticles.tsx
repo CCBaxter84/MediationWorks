@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import './BlogArticles.css';
 //@ts-ignore
 import Blog from '../Blog/Blog.tsx';
-//@ts-ignore
-// import blogs from './blogs.ts';
 import axios from 'axios';
 
 type Props = {
