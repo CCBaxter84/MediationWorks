@@ -29,7 +29,7 @@ connectToDB();
 app.get('/blogs', async (req: Request, res: Response) => {
   try {
     const blogs = await Blog.find();
-    res.status(200).json({ msg: blogs });
+    res.status(200).send(blogs);
   } catch(error: any) {
     res.status(500).json({ msg: error });
   }

@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import './BlogArticles.css';
 //@ts-ignore
 import Blog from '../Blog/Blog.tsx';
 //@ts-ignore
-import blogs from './blogs.ts';
+// import blogs from './blogs.ts';
+import axios from 'axios';
 
 type Props = {
   openModal: (title: string, text: string) => void
@@ -16,6 +18,14 @@ type Blog = {
 };
 
 function BlogArticles({ openModal }: Props) {
+  const [ blogs, setBlogs ] = useState([]);
+
+  useEffect(() => {
+    axios.get('/blogs')
+      .then(res => setBlogs(res.data))
+      .catch(err => console.log(err))
+  }, []);
+
   if (blogs.length) {
     return (
       <section id='blog' className='blogs-background'>
