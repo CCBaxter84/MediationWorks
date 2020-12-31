@@ -58,3 +58,11 @@ label > input {
 #submit-btn:hover {
   cursor: pointer;
 }
+
+#error-msg {
+  color: red;
+}
+
+.error-border {
+  border: 2px solid red;
+}

@@ -3,14 +3,17 @@ import { useState } from 'react';
 import './ContactForm.css';
 import axios from 'axios';
 
+type helperFunction = (event:any) => void;
+
 function ContactForm() {
   const [ firstName, setFirstName ] = useState('');
   const [ lastName, setLastName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ need, setNeed ] = useState('');
   const [ source, setSource ] = useState('');
+  const [ errorMsg, setErrorMsg ] = useState('');
 
-  const handleChange = (event: any) => {
+  const handleChange:helperFunction = (event: any) => {
     const { name, value } = event.target;
     if (name === 'firstName') {
       setFirstName(value);
@@ -25,20 +28,28 @@ function ContactForm() {
     }
   };
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit:helperFunction = (event: any) => {
     event.preventDefault();
-    axios.post('/leads', {
-      firstName,
-      lastName,
-      email,
-      need,
-      source
-    });
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setNeed('');
-    setSource('');
+    const isAnEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (firstName === '' || lastName === '' || email === '' || need === '' || source === '') {
+      setErrorMsg('Please complete all fields');
+    } else if ( !isAnEmail.test(email) ) {
+      setErrorMsg('Please provide an acceptable email');
+    } else {
+      setErrorMsg('');
+      axios.post('/leads', {
+        firstName,
+        lastName,
+        email,
+        need,
+        source
+      });
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setNeed('');
+      setSource('');
+    }
   };
 
   return (
@@ -49,21 +60,39 @@ function ContactForm() {
       </article>
       <form onSubmit={handleSubmit}>
         <label>Your First Name
-          <input type='text' name='firstName' value={firstName} onChange={handleChange}/>
+          <input className={errorMsg && !firstName ? 'error-border': ''}
+            type='text' name='firstName'
+            value={firstName} onChange={handleChange}
+          />
         </label>
         <label>Your Last Name
-          <input type='text' name='lastName' value={lastName} onChange={handleChange}/>
+          <input className={errorMsg && !lastName ? 'error-border': ''}
+            type='text' name='lastName'
+            value={lastName} onChange={handleChange}
+          />
         </label>
         <label>Your Email
-          <input type='text' name='email' value={email} onChange={handleChange}/>
+          <input className={errorMsg && !email ? 'error-border': ''}
+            type='text' name='email'
+            value={email} onChange={handleChange}
+          />
         </label>
         <label>How can I help you?
-          <input type='textarea' name='need' value={need} onChange={handleChange}/>
+          <input className={errorMsg && !need ? 'error-border': ''}
+            type='textarea' name='need'
+            value={need} onChange={handleChange}
+          />
         </label>
         <label>How did you hear about me?
-          <input type='textarea' name='source' value={source} onChange={handleChange}/>
+          <input className={errorMsg && !source ? 'error-border': ''}
+            type='textarea' name='source'
+            value={source} onChange={handleChange}
+          />
         </label>
         <input id='submit-btn' type='submit' value='Submit'/>
+        <article id='error-msg'>
+          <p>{errorMsg}</p>
+        </article>
       </form>
     </section>
   );

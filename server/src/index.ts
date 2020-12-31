@@ -34,14 +34,3 @@ connectToDB();
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`)
 });
-
-
-
-// import * as path from 'path';
-/*app.get('/*', (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, '../client/public/index.html'), err => {
-    if (err) {
-      res.status(500).send(err);
-    }
-  });
-});*/
