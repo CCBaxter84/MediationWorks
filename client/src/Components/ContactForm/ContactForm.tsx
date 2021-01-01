@@ -12,6 +12,7 @@ function ContactForm() {
   const [ need, setNeed ] = useState('');
   const [ source, setSource ] = useState('');
   const [ errorMsg, setErrorMsg ] = useState('');
+  const [ successMsg, setSuccessMsg ] = useState('');
 
   const handleChange:helperFunction = (event: any) => {
     const { name, value } = event.target;
@@ -37,6 +38,8 @@ function ContactForm() {
       setErrorMsg('Please provide an acceptable email');
     } else {
       setErrorMsg('');
+      setSuccessMsg("Thanks. I'll be following up with you shortly.")
+      setTimeout(() => setSuccessMsg(''), 3000);
       axios.post('/leads', {
         firstName,
         lastName,
@@ -90,8 +93,9 @@ function ContactForm() {
           />
         </label>
         <input id='submit-btn' type='submit' value='Submit'/>
-        <article id='error-msg'>
-          <p>{errorMsg}</p>
+        <article>
+          <p id='error-msg'>{errorMsg}</p>
+          <p id='success-msg'>{successMsg}</p>
         </article>
       </form>
     </section>

@@ -64,6 +64,10 @@ label > input {
   color: red;
 }
 
+#success-msg {
+  font-style: italic;
+}
+
 .error-border {
   border: 2px solid red;
 }
