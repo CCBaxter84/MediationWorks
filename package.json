@@ -4,12 +4,11 @@
   "description": "> \"We just need a good attorney who knows all about this stuff to mediate for us.\" <-- NO, YOU DON'T!",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode production",
     "build:watch": "webpack --watch",
     "start": "node server/dist",
     "dev": "nodemon server/src/index.ts",
-    "build:server": "tsc -p .",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run start"
+    "build:server": "tsc -p ."
   },
   "repository": {
     "type": "git",
