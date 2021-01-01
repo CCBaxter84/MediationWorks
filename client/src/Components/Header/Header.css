@@ -13,12 +13,12 @@ header > section {
   width: 100%;
 }
 
-#navlinks {
+.navlinks {
   display: flex;
   justify-content: space-around;
   max-width: 40%;
   min-width: 400px;
-  padding-right: 20px;
+  padding-right: 40px;
 }
 
 .anchor-tags:link, .anchor-tags:visited,

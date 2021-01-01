@@ -56,49 +56,60 @@ function ContactForm() {
   };
 
   return (
-    <section id='contact' className='form-container'>
-      <article id='work-together'>
-        <p id='first-line'>Let's Work Together!</p>
-        <p id='second-line'>Please take a moment to fill out this form, and I'll follow up with you.</p>
-      </article>
-      <form onSubmit={handleSubmit}>
-        <label>Your First Name
-          <input className={errorMsg && !firstName ? 'error-border': ''}
-            type='text' name='firstName'
-            value={firstName} onChange={handleChange}
-          />
-        </label>
-        <label>Your Last Name
-          <input className={errorMsg && !lastName ? 'error-border': ''}
-            type='text' name='lastName'
-            value={lastName} onChange={handleChange}
-          />
-        </label>
-        <label>Your Email
-          <input className={errorMsg && !email ? 'error-border': ''}
-            type='text' name='email'
-            value={email} onChange={handleChange}
-          />
-        </label>
-        <label>How can I help you?
-          <input className={errorMsg && !need ? 'error-border': ''}
-            type='textarea' name='need'
-            value={need} onChange={handleChange}
-          />
-        </label>
-        <label>How did you hear about me?
-          <input className={errorMsg && !source ? 'error-border': ''}
-            type='textarea' name='source'
-            value={source} onChange={handleChange}
-          />
-        </label>
-        <input id='submit-btn' type='submit' value='Submit'/>
-        <article>
-          <p id='error-msg'>{errorMsg}</p>
-          <p id='success-msg'>{successMsg}</p>
+    <>
+      <section id='contact' className='form-container'>
+        <article id='work-together'>
+          <p id='first-line'>Let's Work Together!</p>
+          <p id='second-line'>Please take a moment to fill out this form, and I'll follow up with you.</p>
         </article>
-      </form>
-    </section>
+        <form onSubmit={handleSubmit}>
+          <label>Your First Name
+            <input className={errorMsg && !firstName ? 'error-border': ''}
+              type='text' name='firstName'
+              value={firstName} onChange={handleChange}
+            />
+          </label>
+          <label>Your Last Name
+            <input className={errorMsg && !lastName ? 'error-border': ''}
+              type='text' name='lastName'
+              value={lastName} onChange={handleChange}
+            />
+          </label>
+          <label>Your Email
+            <input className={errorMsg && !email ? 'error-border': ''}
+              type='text' name='email'
+              value={email} onChange={handleChange}
+            />
+          </label>
+          <label>How can I help you?
+            <input className={errorMsg && !need ? 'error-border': ''}
+              type='textarea' name='need'
+              value={need} onChange={handleChange}
+            />
+          </label>
+          <label>How did you hear about me?
+            <input className={errorMsg && !source ? 'error-border': ''}
+              type='textarea' name='source'
+              value={source} onChange={handleChange}
+            />
+          </label>
+          <input id='submit-btn' type='submit' value='Submit'/>
+          <article>
+            <p id='error-msg'>{errorMsg}</p>
+            <p id='success-msg'>{successMsg}</p>
+          </article>
+        </form>
+
+      </section>
+      <footer>
+        <article>
+          <p>Mediation Works 2, LLC</p>
+          <p>a locally-owned small business </p>
+          <p>based in Golden, Colorado</p>
+        </article>
+      </footer>
+    </>
+
   );
 }
 
