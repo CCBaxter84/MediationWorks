@@ -40,43 +40,53 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require('express');
-var mongoose = require('mongoose');
-var blogs_1 = __importDefault(require("./routes/blogs"));
-var leads_1 = __importDefault(require("./routes/leads"));
-require('dotenv').config();
-var app = express();
-var PORT = process.env.PORT || 8080;
-app.use(express.static('./client/public'));
-app.use(express.json());
-app.use('/blogs', blogs_1.default);
-app.use('/leads', leads_1.default);
-var db = process.env.mongoURI;
-var connectToDB = function () {
-    return __awaiter(this, void 0, void 0, function () {
-        var error_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, mongoose.connect(db, {
-                            useCreateIndex: true,
-                            useNewUrlParser: true,
-                            useUnifiedTopology: true
-                        })];
-                case 1:
-                    _a.sent();
-                    console.log('Connected to database');
-                    return [3 /*break*/, 3];
-                case 2:
-                    error_1 = _a.sent();
-                    console.log(error_1);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
-            }
-        });
+var express_1 = require("express");
+var blog_1 = __importDefault(require("../models/blog"));
+var blogsRouter = express_1.Router();
+// @route GET /blogs
+// @desc Retrieve all blogs from database
+blogsRouter.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var blogs, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, blog_1.default.find()];
+            case 1:
+                blogs = _a.sent();
+                res.status(200).json({ msg: blogs });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                res.status(500).json({ msg: error_1 });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
     });
-};
-connectToDB();
-app.listen(PORT, function () {
-    console.log("Server is listening on port " + PORT);
-});
+}); });
+// @route POST /blogs
+// @desc add a blog to the database
+blogsRouter.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var newBlog, blog, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                newBlog = new blog_1.default({
+                    title: req.body.title,
+                    text: req.body.text
+                });
+                return [4 /*yield*/, newBlog.save()];
+            case 1:
+                blog = _a.sent();
+                res.status(201).json({ msg: blog });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                res.status(500).json({ msg: error_2 });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
+exports.default = blogsRouter;

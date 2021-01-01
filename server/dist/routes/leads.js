@@ -40,43 +40,56 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require('express');
-var mongoose = require('mongoose');
-var blogs_1 = __importDefault(require("./routes/blogs"));
-var leads_1 = __importDefault(require("./routes/leads"));
-require('dotenv').config();
-var app = express();
-var PORT = process.env.PORT || 8080;
-app.use(express.static('./client/public'));
-app.use(express.json());
-app.use('/blogs', blogs_1.default);
-app.use('/leads', leads_1.default);
-var db = process.env.mongoURI;
-var connectToDB = function () {
-    return __awaiter(this, void 0, void 0, function () {
-        var error_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, mongoose.connect(db, {
-                            useCreateIndex: true,
-                            useNewUrlParser: true,
-                            useUnifiedTopology: true
-                        })];
-                case 1:
-                    _a.sent();
-                    console.log('Connected to database');
-                    return [3 /*break*/, 3];
-                case 2:
-                    error_1 = _a.sent();
-                    console.log(error_1);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
-            }
-        });
+var express_1 = require("express");
+var lead_1 = __importDefault(require("../models/lead"));
+var leadsRouter = express_1.Router();
+// @route GET /leads
+// @desc retrieve leads from the database
+leadsRouter.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var leads, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, lead_1.default.find()];
+            case 1:
+                leads = _a.sent();
+                res.status(200).json({ msg: leads });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                res.status(500).json({ msg: error_1 });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
     });
-};
-connectToDB();
-app.listen(PORT, function () {
-    console.log("Server is listening on port " + PORT);
-});
+}); });
+// @route POST /leads
+// @desc add a lead to the database
+leadsRouter.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var newLead, lead, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                newLead = new lead_1.default({
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    email: req.body.email,
+                    need: req.body.need,
+                    source: req.body.source
+                });
+                return [4 /*yield*/, newLead.save()];
+            case 1:
+                lead = _a.sent();
+                res.status(201).json({ msg: lead });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                res.status(500).json({ msg: error_2 });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
+exports.default = leadsRouter;
