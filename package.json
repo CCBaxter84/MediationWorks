@@ -9,7 +9,7 @@
     "start": "node server/dist",
     "dev": "nodemon server/src/index.ts",
     "build:server": "tsc -p .",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run start"
   },
   "repository": {
     "type": "git",
