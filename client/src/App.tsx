@@ -14,19 +14,24 @@ import GroupFacilitation from './Components/GroupFacilitation/GroupFacilitation.
 import ContactForm from './Components/ContactForm/ContactForm.tsx'
 //@ts-ignore
 import BlogModal from './Components/BlogModal/BlogModal.tsx'
+//@ts-ignore
+import Video from './Components/Video/Video.tsx'
+
+type Helper = () => void;
+type HelperWArgs = (title: string, text: string) => void;
 
 function App() {
   const [ showModal, setShowModal ] = useState(false);
   const [ title, setTitle ] = useState('');
   const [ text, setText ] = useState('');
 
-  const openModal = (title: string, text: string) => {
+  const openModal:HelperWArgs = (title, text) => {
     setShowModal(true);
     setTitle(title);
     setText(text);
   };
 
-  const closeModal = () => {
+  const closeModal:Helper = () => {
     setShowModal(false);
   }
 
@@ -35,6 +40,7 @@ function App() {
       <Header/>
       <TagLine/>
       <AboutMark/>
+      <Video/>
       <BlogArticles openModal={openModal}/>
       <GroupFacilitation />
       <ContactForm/>

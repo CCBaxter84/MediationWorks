@@ -1,0 +1,18 @@
+.video-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video-title > p {
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 30px;
+  text-shadow: 0 0 20px #0d3fbd;
+}
+
+#video-blurb {
+  padding: 40px;
+  font-size: 18px;
+}
