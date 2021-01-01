@@ -1,13 +1,11 @@
 const express = require('express');
-import { Application, Request, Response } from 'express';
+import { Application } from 'express';
 const mongoose = require('mongoose');
-import Blog from './models/blog';
-import Lead from './models/lead';
 import blogsRouter from './routes/blogs';
 import leadsRouter from './routes/leads';
 require('dotenv').config();
 const app: Application = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.static('./client/public'));
 app.use(express.json());
