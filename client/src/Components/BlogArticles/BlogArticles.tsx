@@ -5,18 +5,21 @@ import './BlogArticles.css';
 import Blog from '../Blog/Blog.tsx';
 import axios from 'axios';
 
-type Props = {
+interface Props {
   openModal: (title: string, text: string) => void
 };
 
-type Blog = {
+interface Blog {
   id: number,
   title: string,
   text: string
 };
 
+type Helper = () => void;
+
 function BlogArticles({ openModal }: Props) {
   const [ blogs, setBlogs ] = useState([]);
+  const [ count, setCount ] = useState(6);
 
   useEffect(() => {
     axios.get('/blogs')
@@ -24,13 +27,23 @@ function BlogArticles({ openModal }: Props) {
       .catch(err => console.log(err))
   }, []);
 
+  let blogsToRender = blogs.slice(0, count);
+
+  const loadMore:Helper = () => {
+    setCount(prev => prev + 3);
+  };
+
   if (blogs.length) {
     return (
       <section id='blog' className='blogs-background'>
         <p>Mark's Blog</p>
         <section className='blogs-container'>
-          {blogs.map((blog:Blog) => <Blog key={blog.id} title={blog.title} text={blog.text} openModal={openModal}/>)}
+          {blogsToRender.map((blog:Blog) => <Blog key={blog.id} title={blog.title} text={blog.text} openModal={openModal}/>)}
         </section>
+        {blogsToRender.length < blogs.length &&
+        <article id='load-more' onClick={loadMore}>
+          <p>Load More</p>
+        </article>}
       </section>
     );
   } else {

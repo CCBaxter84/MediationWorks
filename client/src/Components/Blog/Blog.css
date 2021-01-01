@@ -6,10 +6,11 @@
   box-shadow: 0 0 20px #bd0d77;
   display: flex;
   flex-direction: column;
+  height: 200px;
   justify-content: center;
-  height: 275px;
+  margin: 20px;
   padding: 5px;
-  width: 25%;
+  width: 250px;
 }
 
 .blog:hover {
