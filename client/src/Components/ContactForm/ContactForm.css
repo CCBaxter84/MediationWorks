@@ -4,7 +4,7 @@
   color: seashell;
   display: flex;
   justify-content: space-around;
-  height: 70%;
+  height: 80%;
   margin-left: -10px;
   margin-right: -10px;
   padding: 40px 20px 0 20px;
@@ -90,4 +90,32 @@ footer > article {
 
 footer > article > p {
   height: 10px;
+}
+
+@media screen and (max-width: 755px) {
+  .form-container {
+    flex-direction: column;
+  }
+
+  #work-together, form {
+    width: 75%;
+  }
+
+  #work-together {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .form-container {
+    padding-top: 90px;
+  }
+
+  #work-together {
+    font-size: 24px;
+  }
+
+  #first-line {
+    font-size: 30px;
+  }
 }

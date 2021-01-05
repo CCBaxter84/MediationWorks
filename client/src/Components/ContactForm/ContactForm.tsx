@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ContactForm.css';
 import axios from 'axios';
+//@ts-ignore
+import useWindowSize from '../../useWindowSize.tsx';
 
-type helperFunction = (event:any) => void;
+type Helper = (event:any) => void;
 
 function ContactForm() {
   const [ firstName, setFirstName ] = useState('');
@@ -13,8 +15,14 @@ function ContactForm() {
   const [ source, setSource ] = useState('');
   const [ errorMsg, setErrorMsg ] = useState('');
   const [ successMsg, setSuccessMsg ] = useState('');
+  const [ width, height ] = useWindowSize();
+  const [ isSmallScreen, setScreen ] = useState(false);
 
-  const handleChange:helperFunction = (event: any) => {
+  /*useEffect(() => {
+    width < 755 ? setScreen(true) : setScreen(false);
+  }, [width]); */
+
+  const handleChange:Helper = (event: any) => {
     const { name, value } = event.target;
     if (name === 'firstName') {
       setFirstName(value);
@@ -29,7 +37,7 @@ function ContactForm() {
     }
   };
 
-  const handleSubmit:helperFunction = (event: any) => {
+  const handleSubmit:Helper = (event: any) => {
     event.preventDefault();
     const isAnEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (firstName === '' || lastName === '' || email === '' || need === '' || source === '') {
@@ -54,6 +62,14 @@ function ContactForm() {
       setSource('');
     }
   };
+  /*
+  if (isSmallScreen) {
+    return (
+      <section id='contact'>
+
+      </section>
+    )
+  }*/
 
   return (
     <>

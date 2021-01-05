@@ -27,3 +27,33 @@
   justify-content: space-around;
   height: 400px;
 }
+
+@media screen and (max-width: 600px) {
+  #group-fac-container {
+    padding: 30px 0;
+    width: 85%;
+  }
+
+  #group-fac-container > p {
+    font-size: 36px;
+  }
+
+  #group-fac-container > ul {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  #group-fac-container {
+    padding: 30px 0;
+    width: 85%;
+  }
+
+  #group-fac-container > p {
+    font-size: 30px;
+  }
+
+  #group-fac-container > ul {
+    font-size: 20px;
+  }
+}

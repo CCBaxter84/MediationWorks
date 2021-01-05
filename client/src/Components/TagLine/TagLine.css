@@ -10,6 +10,10 @@ main {
   padding: 75px;
 }
 
+.titles {
+  margin: 20px 0;
+}
+
 .title {
   align-items: center;
   display: flex;
@@ -33,4 +37,33 @@ main {
 #sub-title {
   font-size: 36px;
   font-style: italic;
+  text-align: center;
+}
+
+/*Tablets in portrait */
+@media screen and (max-width: 750px) {
+  main {
+    height: 100%;
+  }
+
+  .title {
+    height: 500px;
+  }
+}
+
+/*Smartphones in portrait*/
+@media screen and (max-width: 420px) {
+  main {
+    height: 100%;
+    padding-top: 50px;
+  }
+
+  .title {
+    font-size: 60px;
+    height: 400px;
+  }
+
+  #sub-title {
+    font-size: 36px;
+  }
 }

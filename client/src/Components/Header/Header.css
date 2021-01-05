@@ -9,20 +9,45 @@ header > section {
   display: flex;
   justify-content: space-between;
   margin: -10;
+  overflow: hidden;
   padding: 5px 20px;
-  width: 100%;
 }
 
-.navlinks {
+.navlinks-left, .navlinks-right {
+  align-items: start;
   display: flex;
   justify-content: space-around;
-  max-width: 40%;
-  min-width: 400px;
-  padding-right: 40px;
+  width: 50%;
+  padding-right: 30px;
+}
+
+.anchor-tags {
+  font-size: 20px;
+  margin: 0 0.2em;
 }
 
 .anchor-tags:link, .anchor-tags:visited,
 .anchor-tags:hover, .anchor-tags:active  {
   color: seashell;
   text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  header > section {
+    padding: 5px 10px;
+  }
+
+  .navlinks-left, .navlinks-right {
+    margin-left: 0px;
+    justify-content: space-around;
+    padding-right: 0;
+    width: 75%;
+  }
+  .navlinks-left {
+    text-align: center;
+  }
+
+  .navlinks-right {
+    width: 25%;
+  }
 }

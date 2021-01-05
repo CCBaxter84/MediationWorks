@@ -5,14 +5,35 @@
   justify-content: center;
 }
 
+.player-wrapper {
+  height: 400px;
+  width: 600px;
+}
+
 .video-title > p {
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
-  padding-top: 30px;
+  padding-top: 40px;
+  text-align: center;
   text-shadow: 0 0 20px #0d3fbd;
 }
 
 #video-blurb {
-  padding: 40px 200px;
+  padding: 40px 0;
   font-size: 20px;
+  width: 75%;
+}
+
+@media screen and (max-width: 755px) {
+  .player-wrapper {
+    height: 300px;
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .player-wrapper {
+    height: 150px;
+    width: 250px;
+  }
 }

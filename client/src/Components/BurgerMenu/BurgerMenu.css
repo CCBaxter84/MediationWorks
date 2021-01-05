@@ -1,0 +1,25 @@
+.bm-container {
+  align-items: flex-end;
+  color: seashell;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  width: 40%;
+}
+
+.burger-menu:hover {
+  cursor: pointer;
+}
+
+.burger-menu {
+  margin: 10 20px 0 20px;
+}
+
+.menu {
+  color: seashell;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-around;
+  margin-right: 10px;
+}
