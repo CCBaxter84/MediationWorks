@@ -16,9 +16,20 @@ header > section {
 .navlinks-left, .navlinks-right {
   align-items: start;
   display: flex;
-  justify-content: space-around;
   width: 50%;
   padding-right: 30px;
+}
+
+.navlinks-left {
+  justify-content: flex-start;
+}
+
+.navlinks-left > h3 {
+  margin-right: 20px;
+}
+
+.navlinks-right {
+  justify-content: flex-end;
 }
 
 .anchor-tags {
@@ -32,22 +43,21 @@ header > section {
   text-decoration: none;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 920px) {
   header > section {
     padding: 5px 10px;
   }
 
   .navlinks-left, .navlinks-right {
     margin-left: 0px;
-    justify-content: space-around;
     padding-right: 0;
-    width: 75%;
+    width: 70%;
   }
   .navlinks-left {
     text-align: center;
   }
 
   .navlinks-right {
-    width: 25%;
+    width: 30%;
   }
 }

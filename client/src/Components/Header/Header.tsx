@@ -12,7 +12,7 @@ function Header() {
   const [ isOpen, setIsOpen ] = useState(false);
 
   useEffect(() => {
-    width < 890 ? setBurgerMenu(true) : setBurgerMenu(false);
+    width < 920 ? setBurgerMenu(true) : setBurgerMenu(false);
   }, [width]);
 
   const open = (e:React.ChangeEvent<HTMLInputElement>) => {
