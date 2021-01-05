@@ -16,12 +16,12 @@ header > section {
 .navlinks-left, .navlinks-right {
   align-items: start;
   display: flex;
-  width: 50%;
   padding-right: 30px;
 }
 
 .navlinks-left {
   justify-content: flex-start;
+  width: 40%;
 }
 
 .navlinks-left > h3 {
@@ -30,6 +30,7 @@ header > section {
 
 .navlinks-right {
   justify-content: flex-end;
+  width: 60%;
 }
 
 .anchor-tags {
